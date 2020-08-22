@@ -21,8 +21,14 @@ void main() {
     vec3 left = makePurple(mousePos.y);
     vec3 right = left.grb;
 
-    if(fragPos.x < 0.5)
+    if(fragPos.x <= 0.45)
         gl_FragColor = vec4(left, 1.0);
-    else
+    else if(fragPos.x > 0.45 && fragPos.x < 0.55)
+        if(fragPos.y <= mousePos.y) 
+            gl_FragColor = vec4(vec3(0.7), 1.0);
+        else
+            gl_FragColor = vec4(vec3(1.0), 1.0);
+    else if(fragPos.x >= 0.55)
         gl_FragColor = vec4(right, 1.0);
+        
 }
