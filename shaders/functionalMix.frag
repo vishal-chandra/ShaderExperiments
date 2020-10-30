@@ -12,11 +12,9 @@ void main() {
     vec2 fragPos = gl_FragCoord.xy / u_resolution;
     vec2 mousePos = u_mouse.xy / u_resolution;
 
-    float mixPct1 = sin(u_time) + cos(u_time);
-    vec3 newColor1 = mix(red, blue, mixPct1);
-
-    float mixPct2 = mod(u_time, 2.0) * 0.5;
-    vec3 newColor2 = mix(red, blue, mixPct2);
+    float mixPct = sin(u_time) + cos(u_time);
+    vec3 newColor1 = mix(red, blue, mixPct);
+    vec3 newColor2 = mix(blue, red, mixPct);
 
     //checkerboard
     if((fragPos.x < 0.5 && fragPos.y > 0.5) || (fragPos.x > 0.5 && fragPos.y < 0.5))
