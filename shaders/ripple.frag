@@ -17,8 +17,7 @@ void main() {
 
     float dist = length(fragPos - mousePos);
     float opacity = 0.5 - 0.1 * sin(25.0 * (1.0 - dist) + 3.0 * u_time);
-
     
-    vec4 color = vec4(dist, dist, 1.0, opacity);
+    vec4 color = vec4(pow(dist, 2.0), 0.0, 1.0, opacity);
     gl_FragColor = color;
 }
